@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Do I Qualify? — No Cost Shoes</title>
+  <meta name="description" content="Check your eligibility for diabetic shoes at no cost through Medicare or your insurance. Takes just a few minutes — no cost, no obligation.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%230e7a6e'/><text x='50' y='66' font-size='48' text-anchor='middle' fill='white' font-family='sans-serif' font-weight='bold'>N</text></svg>">
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="container">
+      <span class="topbar__hours">Mon&ndash;Thu 9am&ndash;5pm &middot; Fri 9am&ndash;4pm ET</span>
+      <span>Medicare-approved supplier &middot; Direct insurance billing</span>
+      <a href="tel:18007046515">Call (800) 704-6515</a>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="index.html">
+        <svg class="brand__mark" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="48" height="48" rx="14" fill="#0e7a6e"/>
+          <path d="M12 30c0-2 1.5-3.5 4-4.5s5-1.5 8-4c2.4-2 4.5-3 6.5-3 3.2 0 5.5 2.3 5.5 5.6 0 1.9-.8 3.4-2.5 4.4H14.5c-1.6 0-2.5.9-2.5 1.5z" fill="#fff"/>
+          <path d="M12 32h24v2.5c0 .8-.7 1.5-1.5 1.5h-21c-.8 0-1.5-.7-1.5-1.5V32z" fill="#ffb37e"/>
+        </svg>
+        <span class="brand__text">
+          <span class="brand__name">No Cost Shoes</span>
+          <span class="brand__tag">by Quantum Medical Supply</span>
+        </span>
+      </a>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="how-it-works.html">How It Works</a>
+        <a href="patients.html">Patients</a>
+        <a href="providers.html">Providers</a>
+        <a href="resources.html">Resources</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a class="btn btn--primary" href="qualify.html">Do I Qualify?</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="page-hero">
+      <div class="container">
+        <h1>See if you qualify for no-cost diabetic shoes</h1>
+        <p>Answer a few quick questions and our team will verify your benefits with Medicare or your insurance — at no cost and with no obligation.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container layout-form">
+        <div class="form-card">
+          <h2 style="margin-bottom:1.5rem;">Eligibility Application</h2>
+          <form data-demo-form novalidate>
+            <div class="form-grid">
+              <div class="field">
+                <label for="q-first">First name *</label>
+                <input id="q-first" name="firstName" type="text" autocomplete="given-name" required>
+              </div>
+              <div class="field">
+                <label for="q-last">Last name *</label>
+                <input id="q-last" name="lastName" type="text" autocomplete="family-name" required>
+              </div>
+              <div class="field">
+                <label for="q-phone">Phone *</label>
+                <input id="q-phone" name="phone" type="tel" autocomplete="tel" required>
+              </div>
+              <div class="field">
+                <label for="q-email">Email</label>
+                <input id="q-email" name="email" type="email" autocomplete="email">
+              </div>
+              <div class="field">
+                <label for="q-dob">Date of birth *</label>
+                <input id="q-dob" name="dob" type="date" autocomplete="bday" required>
+              </div>
+              <div class="field">
+                <label for="q-state">State *</label>
+                <input id="q-state" name="state" type="text" autocomplete="address-level1" required>
+              </div>
+              <div class="field field--full">
+                <label for="q-insurance">Insurance provider *</label>
+                <select id="q-insurance" name="insurance" required>
+                  <option value="">Select your insurance&hellip;</option>
+                  <option>Medicare</option>
+                  <option>Medicare Advantage</option>
+                  <option>Humana</option>
+                  <option>UnitedHealthcare</option>
+                  <option>Aetna</option>
+                  <option>Cigna</option>
+                  <option>Blue Cross Blue Shield</option>
+                  <option>Other / not sure</option>
+                </select>
+                <span class="hint">We bill most major plans directly. Not sure? Choose "Other" and we'll figure it out.</span>
+              </div>
+              <fieldset class="field field--full">
+                <legend>Have you been diagnosed with diabetes? *</legend>
+                <label class="choice"><input type="radio" name="diabetes" value="yes" required> Yes</label>
+                <label class="choice"><input type="radio" name="diabetes" value="no"> No</label>
+              </fieldset>
+              <fieldset class="field field--full">
+                <legend>Do any of these apply to your feet? (check all that apply)</legend>
+                <label class="choice"><input type="checkbox" name="conditions" value="neuropathy"> Numbness, tingling, or diabetic neuropathy</label>
+                <label class="choice"><input type="checkbox" name="conditions" value="circulation"> Poor circulation</label>
+                <label class="choice"><input type="checkbox" name="conditions" value="deformity"> Foot deformity, bunions, or hammertoes</label>
+                <label class="choice"><input type="checkbox" name="conditions" value="calluses"> Calluses that could lead to ulcers</label>
+                <label class="choice"><input type="checkbox" name="conditions" value="ulcers"> Current or previous foot ulcers</label>
+                <label class="choice"><input type="checkbox" name="conditions" value="amputation"> Partial or complete foot amputation</label>
+              </fieldset>
+              <div class="field">
+                <label for="q-doc">Physician name</label>
+                <input id="q-doc" name="physician" type="text">
+              </div>
+              <div class="field">
+                <label for="q-doc-phone">Physician phone</label>
+                <input id="q-doc-phone" name="physicianPhone" type="tel">
+              </div>
+              <div class="field field--full">
+                <label class="choice"><input type="checkbox" name="consent" required> I agree to be contacted by No Cost Shoes / Quantum Medical Supply about my eligibility. *</label>
+              </div>
+            </div>
+            <div style="margin-top:1.6rem;">
+              <button class="btn btn--primary btn--lg" type="submit">Check My Eligibility</button>
+            </div>
+            <p class="form-note">Your information is used only to verify your benefits and coordinate your prescription. We never sell your data.</p>
+          </form>
+          <div class="form-success" role="status">Thank you! Your application has been received. A member of our team will call you within 1&ndash;2 business days to confirm your coverage and next steps.</div>
+        </div>
+
+        <div>
+          <div class="card" style="margin-bottom:1.5rem;">
+            <div class="card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <h3>Prefer the phone?</h3>
+            <p>Our specialists are happy to take your application and answer questions.</p>
+            <p style="margin-top:0.8rem;"><a class="btn btn--ghost" href="tel:18007046515">(800) 704-6515</a></p>
+          </div>
+          <div class="card">
+            <h3>What happens next?</h3>
+            <ul class="ticklist" style="margin-bottom:0;">
+              <li><span class="check">1</span><span>We verify your coverage with Medicare or your insurance.</span></li>
+              <li><span class="check">2</span><span>We coordinate the prescription with your physician's office.</span></li>
+              <li><span class="check">3</span><span>You get professionally fitted and your shoes ship to your door.</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html">
+            <svg class="brand__mark" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="48" height="48" rx="14" fill="#0e7a6e"/>
+          <path d="M12 30c0-2 1.5-3.5 4-4.5s5-1.5 8-4c2.4-2 4.5-3 6.5-3 3.2 0 5.5 2.3 5.5 5.6 0 1.9-.8 3.4-2.5 4.4H14.5c-1.6 0-2.5.9-2.5 1.5z" fill="#fff"/>
+          <path d="M12 32h24v2.5c0 .8-.7 1.5-1.5 1.5h-21c-.8 0-1.5-.7-1.5-1.5V32z" fill="#ffb37e"/>
+        </svg>
+            <span class="brand__text">
+              <span class="brand__name" style="color:#fff">No Cost Shoes</span>
+              <span class="brand__tag" style="color:#7fd1c6">by Quantum Medical Supply</span>
+            </span>
+          </a>
+          <p>A Medicare-approved supplier helping people with diabetes get doctor-prescribed therapeutic shoes and custom inserts at little or no cost &mdash; with direct billing to Medicare and most insurance plans.</p>
+        </div>
+        <div>
+          <h4>Get Started</h4>
+          <ul>
+            <li><a href="qualify.html">Do I Qualify?</a></li>
+            <li><a href="how-it-works.html">How It Works</a></li>
+            <li><a href="patients.html">For Patients</a></li>
+            <li><a href="providers.html">For Providers</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="resources.html">Medicare Coverage Guide</a></li>
+            <li><a href="resources.html#faqs">FAQs</a></li>
+            <li><a href="resources.html#shoe-bill">Therapeutic Shoe Bill</a></li>
+            <li><a href="about.html">About Us</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="tel:18007046515">(800) 704-6515</a></li>
+            <li><a href="mailto:service@quantummedicalsupply.com">service@quantummedicalsupply.com</a></li>
+            <li>1818 S. Australian Ave #301<br>West Palm Beach, FL 33409</li>
+            <li>Mon&ndash;Thu 9am&ndash;5pm &middot; Fri 9am&ndash;4pm ET</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-legal">
+        <span>&copy; 2026 No Cost Shoes &middot; Quantum Medical Supply. All rights reserved.</span>
+        <span>*With qualifying Medicare or insurance coverage. Deductibles and coinsurance may apply.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
