@@ -207,21 +207,38 @@ h1, h2 { text-wrap: balance; }
   flex-shrink: 0;
 }
 
-.brand__text { line-height: 1.1; }
+.brand__text { line-height: 1.05; }
 
-.brand__name {
-  font-family: var(--font-head);
-  font-weight: 700;
-  font-size: 1.22rem;
-  color: var(--navy);
+.brand__q {
   display: block;
+  font-family: var(--font-head);
+  font-weight: 800;
+  font-size: 1.45rem;
+  letter-spacing: -0.01em;
+  color: var(--quantum-blue);
 }
 
-.brand__tag {
-  font-size: 0.72rem;
-  color: var(--ink-soft);
+.brand__medical {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: var(--quantum-pink);
   text-transform: uppercase;
-  letter-spacing: 0.09em;
+  letter-spacing: 0.32em;
+  margin-top: 1px;
+}
+
+.brand__tagline {
+  display: block;
+  font-size: 0.62rem;
+  font-weight: 600;
+  color: var(--quantum-pink);
+  margin-top: 2px;
+  white-space: nowrap;
+}
+
+@media (max-width: 480px) {
+  .brand__tagline { display: none; }
 }
 
 .nav { display: flex; align-items: center; gap: 1.6rem; }
