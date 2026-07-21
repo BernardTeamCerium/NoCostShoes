@@ -196,49 +196,60 @@ h1, h2 { text-wrap: balance; }
 
 .brand {
   display: flex;
-  align-items: center;
-  gap: 0.65rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
   text-decoration: none;
 }
 
-.brand__mark {
-  width: 44px;
-  height: 44px;
-  flex-shrink: 0;
-}
-
-.brand__text { line-height: 1.05; }
-
-.brand__q {
-  display: block;
+.brand__logo {
+  display: flex;
+  align-items: center;
   font-family: var(--font-head);
   font-weight: 800;
-  font-size: 1.45rem;
-  letter-spacing: -0.01em;
-  color: var(--quantum-blue);
+  font-size: 1.65rem;
+  letter-spacing: -0.02em;
+  line-height: 1;
 }
 
-.brand__medical {
-  display: block;
-  font-size: 0.7rem;
-  font-weight: 800;
-  color: var(--quantum-pink);
-  text-transform: uppercase;
-  letter-spacing: 0.32em;
-  margin-top: 1px;
+.brand__no { color: #4180BE; }
+.brand__cost { color: #7DBB57; }
+
+.brand__foot {
+  width: 17px;
+  height: auto;
+  flex-shrink: 0;
+  margin: -14px 3px 0 2px;
+  transform: rotate(10deg);
 }
 
-.brand__tagline {
+.brand__shoes {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #fff;
+  background: #4180BE;
+  border-radius: 5px;
+  padding: 2px 8px 3px;
+  align-self: flex-end;
+  margin: 0 0 2px 1px;
+  letter-spacing: 0.02em;
+}
+
+.brand__powered {
   display: block;
-  font-size: 0.62rem;
+  font-size: 0.63rem;
   font-weight: 600;
-  color: var(--quantum-pink);
-  margin-top: 2px;
+  color: var(--ink-soft);
+  margin-top: 3px;
+  letter-spacing: 0.05em;
   white-space: nowrap;
 }
 
+.site-footer .brand__powered { color: #9FB4C2; }
+
 @media (max-width: 480px) {
-  .brand__tagline { display: none; }
+  .brand__powered { font-size: 0.56rem; }
 }
 
 .nav { display: flex; align-items: center; gap: 1.6rem; }
