@@ -284,10 +284,10 @@ h1, h2 { text-wrap: balance; }
 
 .hero {
   background:
-    radial-gradient(700px 480px at 96% 4%, rgba(239, 96, 140, 0.14), transparent 60%),
-    radial-gradient(800px 500px at -6% 100%, rgba(105, 147, 205, 0.16), transparent 60%),
-    linear-gradient(180deg, var(--sand), var(--cream));
-  color: var(--ink);
+    radial-gradient(750px 500px at 100% 0%, rgba(239, 96, 140, 0.35), transparent 55%),
+    radial-gradient(700px 460px at -8% 110%, rgba(255, 255, 255, 0.14), transparent 60%),
+    linear-gradient(135deg, #35629F 0%, #6993CD 78%, #7EA3D8 100%);
+  color: var(--white);
   overflow: hidden;
 }
 
@@ -300,14 +300,14 @@ h1, h2 { text-wrap: balance; }
 }
 
 .hero h1 {
-  color: var(--ink);
+  color: var(--white);
   font-size: clamp(2.2rem, 4.8vw, 3.5rem);
   margin-bottom: 1.25rem;
 }
 
 .hero h1 em {
   font-style: normal;
-  background: var(--grad);
+  background: linear-gradient(100deg, #FFC2D6 0%, #FFE3EC 55%, #FFFFFF 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -315,17 +315,17 @@ h1, h2 { text-wrap: balance; }
 
 .hero p.lead {
   font-size: 1.2rem;
-  color: var(--ink-soft);
+  color: #E7EEF9;
   max-width: 34rem;
   margin-bottom: 2rem;
 }
 
 .hero__cta { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
 
-.hero__stars { margin-top: 1.4rem; font-size: 0.95rem; color: var(--ink-soft); font-weight: 600; }
+.hero__stars { margin-top: 1.4rem; font-size: 0.95rem; color: #E7EEF9; font-weight: 600; }
 .hero__stars b { color: var(--quantum-gold); letter-spacing: 0.12em; font-weight: 700; }
 
-.hero__note { font-size: 0.88rem; color: var(--ink-soft); opacity: 0.85; margin-top: 0.8rem; }
+.hero__note { font-size: 0.88rem; color: #CBDAF0; margin-top: 0.8rem; }
 
 .hero__card {
   background: var(--white);
@@ -343,7 +343,7 @@ h1, h2 { text-wrap: balance; }
   gap: 1rem 2.2rem;
   margin-top: 2.2rem;
   padding-top: 1.6rem;
-  border-top: 1px solid var(--line);
+  border-top: 1px solid rgba(255, 255, 255, 0.22);
 }
 
 .cred span {
@@ -352,10 +352,10 @@ h1, h2 { text-wrap: balance; }
   gap: 0.55rem;
   font-size: 0.88rem;
   font-weight: 600;
-  color: var(--ink-soft);
+  color: #E7EEF9;
 }
 
-.cred .check { background: rgba(105, 147, 205, 0.16); color: var(--teal); margin-top: 0; }
+.cred .check { background: rgba(255, 255, 255, 0.18); color: var(--white); margin-top: 0; }
 
 /* Hero product illustration */
 
@@ -798,15 +798,14 @@ fieldset.field legend {
 
 .page-hero {
   background:
-    radial-gradient(700px 380px at 92% -10%, rgba(239, 96, 140, 0.13), transparent 60%),
-    radial-gradient(700px 400px at 0% 110%, rgba(105, 147, 205, 0.15), transparent 60%),
-    linear-gradient(180deg, var(--sand), var(--cream));
-  color: var(--ink);
+    radial-gradient(700px 380px at 96% -10%, rgba(239, 96, 140, 0.32), transparent 58%),
+    linear-gradient(135deg, #35629F 0%, #6993CD 85%, #7EA3D8 100%);
+  color: var(--white);
   padding: 4rem 0 3.4rem;
 }
 
-.page-hero h1 { color: var(--ink); font-size: clamp(2rem, 4vw, 2.9rem); margin-bottom: 0.9rem; }
-.page-hero p { color: var(--ink-soft); font-size: 1.15rem; max-width: 40rem; }
+.page-hero h1 { color: var(--white); font-size: clamp(2rem, 4vw, 2.9rem); margin-bottom: 0.9rem; }
+.page-hero p { color: #E7EEF9; font-size: 1.15rem; max-width: 40rem; }
 
 .prose { max-width: 760px; }
 .prose h2 { font-size: 1.6rem; margin: 2.2rem 0 0.8rem; }
