@@ -710,6 +710,21 @@ h1, h2 { text-wrap: balance; }
 
 .stat__label { color: var(--ink-soft); font-size: 0.98rem; }
 
+/* Patient reviews */
+
+.review-stars {
+  color: var(--quantum-gold);
+  letter-spacing: 0.12em;
+  font-weight: 700;
+  margin-bottom: 0.6rem;
+}
+
+.review-name {
+  margin-top: 0.8rem;
+  font-weight: 700;
+  color: var(--navy);
+}
+
 /* --------------------------------------------------------------------------
    FAQ accordion
    -------------------------------------------------------------------------- */
