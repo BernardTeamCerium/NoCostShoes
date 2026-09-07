@@ -202,6 +202,15 @@ h1, h2 { text-wrap: balance; }
   text-decoration: none;
 }
 
+.brand__img { height: 42px; width: auto; display: block; }
+
+.site-footer .brand__img {
+  height: 52px;
+  background: var(--white);
+  padding: 6px 10px;
+  border-radius: 8px;
+}
+
 .brand__logo {
   display: flex;
   align-items: center;
@@ -688,6 +697,13 @@ h1, h2 { text-wrap: balance; }
 
 .tile__art { position: absolute; inset: 0; opacity: 0.9; }
 
+img.tile__art {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 1;
+}
+
 .tile::after {
   content: "";
   position: absolute;
@@ -1066,6 +1082,30 @@ fieldset.field legend {
   color: #7A8FA0;
 }
 
+/* Brand logo row */
+
+.brandrow {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem 3rem;
+  flex-wrap: wrap;
+  margin: -0.75rem 0 2.25rem;
+}
+
+.brandrow img { height: 34px; width: auto; opacity: 0.85; }
+
+/* Footer accreditation badges */
+
+.footer-badges { display: flex; gap: 0.8rem; margin-top: 1.1rem; flex-wrap: wrap; }
+
+.footer-badges img {
+  height: 54px;
+  width: auto;
+  background: var(--white);
+  border-radius: 8px;
+  padding: 5px 8px;
+}
+
 /* Product catalog cards */
 
 .pcard {
@@ -1107,13 +1147,21 @@ fieldset.field legend {
 a.pcard { text-decoration: none; color: inherit; }
 
 .pcard__art {
-  background: var(--sand);
+  background: var(--white);
+  border: 1px solid var(--line);
   border-radius: 10px;
-  padding: 0.9rem 1rem;
+  padding: 0.5rem;
   margin-bottom: 0.7rem;
 }
 
 .pcard__art svg { width: 100%; height: auto; }
+
+.pcard__art img {
+  width: 100%;
+  height: 160px;
+  object-fit: contain;
+  display: block;
+}
 
 .pcard__link {
   font-size: 0.9rem;
