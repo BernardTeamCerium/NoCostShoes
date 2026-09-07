@@ -26,11 +26,40 @@
     });
   }
 
+  /* Products dropdown: click/tap toggle (hover works via CSS) */
+  document.querySelectorAll(".nav__item").forEach(function (item) {
+    var btn = item.querySelector(".nav__drop-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.stopPropagation();
+      var open = item.classList.toggle("is-open");
+      btn.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+  });
+
+  document.addEventListener("click", function (e) {
+    document.querySelectorAll(".nav__item.is-open").forEach(function (item) {
+      if (!item.contains(e.target)) {
+        item.classList.remove("is-open");
+        var btn = item.querySelector(".nav__drop-btn");
+        if (btn) btn.setAttribute("aria-expanded", "false");
+      }
+    });
+  });
+
   /* Highlight current page in nav */
   var here = location.pathname.split("/").pop() || "index.html";
   document.querySelectorAll(".nav a[href]").forEach(function (a) {
     var target = a.getAttribute("href").split("#")[0];
     if (target === here) a.classList.add("is-active");
+  });
+
+  /* If a dropdown page is current, highlight the Products button too */
+  document.querySelectorAll(".nav__item").forEach(function (item) {
+    if (item.querySelector("a.is-active")) {
+      var btn = item.querySelector(".nav__drop-btn");
+      if (btn) btn.classList.add("is-active");
+    }
   });
 
   /* Scroll-reveal */

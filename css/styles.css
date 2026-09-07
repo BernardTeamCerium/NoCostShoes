@@ -254,6 +254,63 @@ h1, h2 { text-wrap: balance; }
 
 .nav { display: flex; align-items: center; gap: 1.6rem; }
 
+.nav__item { position: relative; }
+
+.nav__drop-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  font-family: var(--font-head);
+  font-size: 0.97rem;
+  font-weight: 600;
+  color: var(--ink);
+  padding: 0.35rem 0;
+  border-bottom: 2px solid transparent;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.nav__drop-btn::after { content: "▾"; font-size: 0.72em; translate: 0 1px; }
+
+.nav__drop-btn:hover { color: var(--teal); }
+.nav__drop-btn.is-active { color: var(--teal); border-bottom-color: var(--teal); }
+
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding-top: 0.55rem;
+  display: none;
+  z-index: 60;
+}
+
+.dropdown__panel {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  padding: 0.5rem;
+  min-width: 190px;
+}
+
+.nav__item:hover .dropdown,
+.nav__item:focus-within .dropdown,
+.nav__item.is-open .dropdown { display: block; }
+
+.nav .dropdown__panel a {
+  display: block;
+  padding: 0.55rem 0.9rem;
+  border-radius: 8px;
+  border-bottom: 0;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.nav .dropdown__panel a:hover { background: var(--teal-soft); }
+
 .nav a {
   font-family: var(--font-head);
   font-size: 0.97rem;
@@ -978,8 +1035,8 @@ fieldset.field legend {
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
-  gap: 2.5rem;
+  grid-template-columns: 1.5fr 0.9fr 1fr 1fr 1.2fr;
+  gap: 2.2rem;
   padding-bottom: 2.5rem;
   border-bottom: 1px solid rgba(255,255,255,0.1);
 }
@@ -1008,6 +1065,63 @@ fieldset.field legend {
   font-size: 0.85rem;
   color: #7A8FA0;
 }
+
+/* Product catalog cards */
+
+.pcard {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.4rem 1.4rem 1.2rem;
+  box-shadow: var(--shadow-soft);
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.pcard:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+
+.pcard__brand {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--teal);
+}
+
+.pcard h3 { font-size: 1.08rem; }
+
+.pcard__colors { font-size: 0.88rem; color: var(--ink-soft); flex: 1; }
+
+.pcard__dots { display: flex; gap: 0.35rem; margin: 0.25rem 0 0.5rem; }
+
+.pcard__dots span {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  display: inline-block;
+}
+
+a.pcard { text-decoration: none; color: inherit; }
+
+.pcard__art {
+  background: var(--sand);
+  border-radius: 10px;
+  padding: 0.9rem 1rem;
+  margin-bottom: 0.7rem;
+}
+
+.pcard__art svg { width: 100%; height: auto; }
+
+.pcard__link {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--accent-dark);
+}
+
+.pcard:hover .pcard__link { text-decoration: underline; }
 
 /* --------------------------------------------------------------------------
    Reveal animation
@@ -1053,6 +1167,12 @@ html.js .reveal.is-visible { opacity: 1; transform: none; }
   .nav.is-open { transform: none; }
   .nav a { font-size: 1.15rem; padding: 0.55rem 0; }
   .nav .btn { margin-top: 0.8rem; }
+
+  .nav__item { width: 100%; }
+  .nav__drop-btn { font-size: 1.15rem; padding: 0.55rem 0; }
+  .dropdown { position: static; transform: none; display: block; padding-top: 0; }
+  .dropdown__panel { border: 0; box-shadow: none; background: transparent; padding: 0 0 0 1rem; min-width: 0; }
+  .nav .dropdown__panel a { font-size: 1.02rem; padding: 0.4rem 0.6rem; }
 
   .nav-toggle { display: block; position: relative; z-index: 45; }
 
