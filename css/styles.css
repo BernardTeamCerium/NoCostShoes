@@ -461,6 +461,46 @@ h1, h2 { text-wrap: balance; }
 
 .cred .check { background: rgba(255, 255, 255, 0.18); color: var(--white); margin-top: 0; }
 
+/* Partner banner bar (728x90 creative) on inner pages */
+
+.adbar {
+  background: var(--white);
+  border-bottom: 1px solid var(--line);
+  padding: 0.7rem 1rem;
+}
+
+.adbar__link {
+  display: block;
+  width: 728px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.adbar__frame {
+  display: block;
+  width: 728px;
+  height: 90px;
+  transform-origin: top left;
+  pointer-events: none; /* clicks fall through to the link */
+}
+
+.adbar__frame iframe {
+  display: block;
+  border: 0;
+  width: 728px;
+  height: 90px;
+}
+
+@media (max-width: 767px) {
+  .adbar__link { width: 473px; height: 59px; }
+  .adbar__frame { transform: scale(0.65); }
+}
+
+@media (max-width: 500px) {
+  .adbar__link { width: 328px; height: 41px; }
+  .adbar__frame { transform: scale(0.45); }
+}
+
 /* Hero product illustration */
 
 .hero__product {
