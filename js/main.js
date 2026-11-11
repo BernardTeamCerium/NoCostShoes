@@ -81,6 +81,64 @@
     revealed.forEach(function (el) { el.classList.add("is-visible"); });
   }
 
+  /* 3D hero shoe viewer: pointer tilt + drag to step through angle photos */
+  var viewer = document.querySelector("[data-shoe3d]");
+  if (viewer) {
+    var stage = viewer.querySelector(".shoe3d__stage");
+    var frames = viewer.querySelectorAll(".shoe3d__img");
+    var dots = viewer.querySelectorAll(".shoe3d__dots button");
+    var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var current = 0;
+    var dragging = false;
+    var startX = 0;
+    var startFrame = 0;
+
+    frames.forEach(function (f, i) {
+      if (f.classList.contains("is-active")) current = i;
+    });
+
+    var show = function (i) {
+      current = ((i % frames.length) + frames.length) % frames.length;
+      frames.forEach(function (f, j) { f.classList.toggle("is-active", j === current); });
+      dots.forEach(function (d, j) { d.classList.toggle("is-active", j === current); });
+    };
+
+    dots.forEach(function (d, i) {
+      d.addEventListener("click", function () { show(i); });
+    });
+
+    viewer.addEventListener("pointerdown", function (e) {
+      if (e.target.tagName === "BUTTON") return;
+      dragging = true;
+      startX = e.clientX;
+      startFrame = current;
+      viewer.classList.add("is-grabbing");
+      viewer.setPointerCapture(e.pointerId);
+    });
+
+    viewer.addEventListener("pointermove", function (e) {
+      if (dragging) {
+        show(startFrame + Math.round((e.clientX - startX) / 70));
+      } else if (!reduceMotion && e.pointerType === "mouse") {
+        var r = viewer.getBoundingClientRect();
+        var x = (e.clientX - r.left) / r.width - 0.5;
+        var y = (e.clientY - r.top) / r.height - 0.5;
+        stage.style.transform = "rotateY(" + (x * 18).toFixed(1) + "deg) rotateX(" + (-y * 12).toFixed(1) + "deg)";
+      }
+    });
+
+    ["pointerup", "pointercancel"].forEach(function (ev) {
+      viewer.addEventListener(ev, function () {
+        dragging = false;
+        viewer.classList.remove("is-grabbing");
+      });
+    });
+
+    viewer.addEventListener("pointerleave", function () {
+      stage.style.transform = "";
+    });
+  }
+
   /* Demo form handling: validate, then show confirmation.
      Wire the action attribute to a real endpoint when the backend is ready. */
   document.querySelectorAll("form[data-demo-form]").forEach(function (form) {

@@ -471,30 +471,83 @@ h1, h2 { text-wrap: balance; }
   padding: 1.5rem;
 }
 
-.hero__collage {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: 118px;
-  gap: 0.7rem;
+.shoe3d {
+  perspective: 950px;
+  cursor: grab;
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
-.hero__collage img {
+.shoe3d.is-grabbing { cursor: grabbing; }
+
+.shoe3d__stage {
+  position: relative;
+  aspect-ratio: 10 / 8;
+  transform-style: preserve-3d;
+  transition: transform 0.18s ease-out;
+  will-change: transform;
+}
+
+.shoe3d__img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: contain;
-  background: var(--white);
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  padding: 0.45rem;
+  opacity: 0;
+  transition: opacity 0.22s ease;
+  pointer-events: none;
+  filter: drop-shadow(0 22px 20px rgba(18, 59, 93, 0.22));
 }
 
-.hero__collage-main {
-  grid-column: span 2;
-  grid-row: span 2;
+.shoe3d__img.is-active { opacity: 1; }
+
+.shoe3d__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.shoe3d__hint {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+  letter-spacing: 0.01em;
+}
+
+.shoe3d__dots {
+  display: flex;
+  gap: 0.45rem;
+}
+
+.shoe3d__dots button {
+  width: 11px;
+  height: 11px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--line);
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.shoe3d__dots button:hover { background: var(--quantum-blue); }
+
+.shoe3d__dots button.is-active {
+  background: var(--teal);
+  transform: scale(1.25);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shoe3d__stage { transition: none; transform: none !important; }
 }
 
 .chip {
   position: absolute;
+  pointer-events: none;
   display: flex;
   align-items: center;
   gap: 0.7rem;
@@ -516,7 +569,7 @@ h1, h2 { text-wrap: balance; }
 }
 
 .chip--tl { top: 0; left: -0.5rem; }
-.chip--br { bottom: 0.5rem; right: -0.5rem; }
+.chip--br { bottom: 4.75rem; right: -0.5rem; }
 
 @media (max-width: 980px) {
   .chip--tl { left: 0; }
