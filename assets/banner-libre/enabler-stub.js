@@ -34,6 +34,16 @@
     getDartCreativeId: function () { return 0; }
   };
 
+  /* Any Enabler method this stub doesn't define becomes a safe no-op. */
+  if (typeof Proxy === "function") {
+    window.Enabler = new Proxy(window.Enabler, {
+      get: function (target, prop) {
+        if (prop in target) return target[prop];
+        return function () {};
+      }
+    });
+  }
+
   window.studio = window.studio || {};
   window.studio.events = window.studio.events || {
     StudioEvent: {
