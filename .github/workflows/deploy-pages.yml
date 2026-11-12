@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [claude/nocostshoes-redesign-0bogpv]
+    branches: [main, claude/nocostshoes-redesign-0bogpv]
   workflow_dispatch:
 
 permissions:
