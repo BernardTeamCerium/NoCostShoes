@@ -165,7 +165,7 @@
       '<div class="cookie-consent__inner">' +
         '<p class="cookie-consent__text">We use cookies and similar technologies to analyze site traffic and improve your experience. ' +
         'You can accept or decline analytics and advertising tracking — essential cookies are always on. ' +
-        'See our <a href="https://www.quantummedicalsupply.com/privacy.html" target="_blank" rel="noopener">Privacy Policy</a>.</p>' +
+        'See our <a href="privacy.html">Privacy Policy</a>.</p>' +
         '<div class="cookie-consent__actions">' +
           '<button type="button" class="btn btn--ghost cookie-decline">Decline</button>' +
           '<button type="button" class="btn btn--primary cookie-accept">Accept</button>' +

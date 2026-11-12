@@ -501,6 +501,36 @@ h1, h2 { text-wrap: balance; }
   .adbar__frame { transform: scale(0.45); }
 }
 
+/* Privacy policy page */
+
+.policy h2 { margin-top: 2.4rem; }
+
+.policy h3 { margin-top: 1.6rem; margin-bottom: 0.6rem; color: var(--navy); }
+
+.policy p, .policy li { font-size: 0.98rem; }
+
+.policy-toc { padding-left: 1.4rem; }
+
+.policy-toc li { padding: 0.15rem 0; }
+
+.policy-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.2rem 0;
+  font-size: 0.92rem;
+}
+
+.policy-table th, .policy-table td {
+  border: 1px solid var(--line);
+  padding: 0.6rem 0.8rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.policy-table th { background: var(--sand); color: var(--navy); }
+
+.policy-table td:last-child { white-space: nowrap; font-weight: 700; }
+
 /* Cookie consent (ported from quantummedicalsupply.com) */
 
 .cookie-consent {
@@ -1242,6 +1272,10 @@ fieldset.field legend {
   font-size: 0.85rem;
   color: #7A8FA0;
 }
+
+.footer-legal a { color: #AFC3D2; text-decoration: underline; }
+
+.footer-legal a:hover { color: var(--white); }
 
 /* Brand logo row */
 
