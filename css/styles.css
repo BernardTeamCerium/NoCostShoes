@@ -501,6 +501,37 @@ h1, h2 { text-wrap: balance; }
   .adbar__frame { transform: scale(0.45); }
 }
 
+/* Cookie consent (ported from quantummedicalsupply.com) */
+
+.cookie-consent {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 120;
+  transform: translateY(115%); transition: transform 0.3s ease;
+  pointer-events: none;
+}
+
+.cookie-consent.is-open { transform: translateY(0); pointer-events: auto; }
+
+.cookie-consent__inner {
+  max-width: 1160px; margin: 0.8rem auto;
+  background: var(--white); border: 1px solid var(--line); border-radius: var(--radius);
+  box-shadow: var(--shadow); padding: 1rem 1.2rem;
+  display: flex; gap: 0.9rem 1.4rem; align-items: center; justify-content: space-between; flex-wrap: wrap;
+}
+
+.cookie-consent__text { margin: 0; font-size: 0.9rem; color: var(--ink-soft); max-width: 72ch; }
+
+.cookie-consent__text a { color: var(--teal); }
+
+.cookie-consent__actions { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+
+.cookie-consent__actions .btn { padding: 0.7rem 1.4rem; }
+
+@media (max-width: 760px) {
+  .cookie-consent__inner { margin: 0.6rem; padding: 0.9rem 1rem; }
+  .cookie-consent__actions { width: 100%; }
+  .cookie-consent__actions .btn { flex: 1; justify-content: center; }
+}
+
 /* 300x600 half-page banner rail beside content */
 
 .layout-rail {

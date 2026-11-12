@@ -139,6 +139,68 @@
     });
   }
 
+  /* Cookie / tracking consent (Google Consent Mode v2) — ported from
+     quantummedicalsupply.com. Tracking stays denied until the visitor
+     accepts; declining keeps analytics/ad storage off. */
+  (function () {
+    var KEY = "ncs-consent";
+    function gtagSafe() {
+      if (typeof window.gtag === "function") { window.gtag.apply(window, arguments); }
+    }
+    function applyConsent(state) {
+      var v = state === "granted" ? "granted" : "denied";
+      gtagSafe("consent", "update", {
+        "ad_storage": v, "ad_user_data": v, "ad_personalization": v, "analytics_storage": v
+      });
+    }
+    function store(state) { try { localStorage.setItem(KEY, state); } catch (e) {} }
+    function read() { try { return localStorage.getItem(KEY); } catch (e) { return null; } }
+
+    var banner = document.createElement("div");
+    banner.className = "cookie-consent";
+    banner.setAttribute("role", "dialog");
+    banner.setAttribute("aria-label", "Cookie consent");
+    banner.setAttribute("aria-live", "polite");
+    banner.innerHTML =
+      '<div class="cookie-consent__inner">' +
+        '<p class="cookie-consent__text">We use cookies and similar technologies to analyze site traffic and improve your experience. ' +
+        'You can accept or decline analytics and advertising tracking — essential cookies are always on. ' +
+        'See our <a href="https://www.quantummedicalsupply.com/privacy.html" target="_blank" rel="noopener">Privacy Policy</a>.</p>' +
+        '<div class="cookie-consent__actions">' +
+          '<button type="button" class="btn btn--ghost cookie-decline">Decline</button>' +
+          '<button type="button" class="btn btn--primary cookie-accept">Accept</button>' +
+        '</div>' +
+      '</div>';
+    document.body.appendChild(banner);
+
+    function hide() { banner.classList.remove("is-open"); }
+    function show() { banner.classList.add("is-open"); }
+
+    banner.querySelector(".cookie-accept").addEventListener("click", function () {
+      store("granted"); applyConsent("granted"); hide();
+    });
+    banner.querySelector(".cookie-decline").addEventListener("click", function () {
+      store("denied"); applyConsent("denied"); hide();
+    });
+
+    /* Show the banner only until the visitor has made a choice */
+    if (!read()) { show(); }
+
+    /* Let visitors reopen the banner to change their mind (consent withdrawal) */
+    function wireReopen(el) {
+      el.addEventListener("click", function (e) { e.preventDefault(); show(); });
+    }
+    document.querySelectorAll("[data-cookie-settings]").forEach(wireReopen);
+    document.querySelectorAll(".footer-legal").forEach(function (legal) {
+      var a = document.createElement("a");
+      a.href = "#";
+      a.textContent = "Cookie Preferences";
+      a.setAttribute("data-cookie-settings", "");
+      wireReopen(a);
+      legal.appendChild(a);
+    });
+  })();
+
   /* Demo form handling: validate, then show confirmation.
      Wire the action attribute to a real endpoint when the backend is ready. */
   document.querySelectorAll("form[data-demo-form]").forEach(function (form) {
