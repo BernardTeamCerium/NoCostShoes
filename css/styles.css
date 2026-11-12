@@ -1243,6 +1243,19 @@ fieldset.field legend {
 
 .form-success.is-visible { display: block; }
 
+.form-success__actions {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin-top: 0.9rem;
+}
+
+.form-success__actions .btn {
+  padding: 0.55rem 1.1rem;
+  font-size: 0.9rem;
+  background: var(--white);
+}
+
 /* --------------------------------------------------------------------------
    Info / prose pages
    -------------------------------------------------------------------------- */

@@ -224,15 +224,44 @@
       var outro = form.getAttribute("data-body-outro");
       if (intro) body = intro + "\n\n" + body;
       if (outro) body = body + "\n\n" + outro;
-      var href = "mailto:" + form.getAttribute("data-mailto-form") +
-        "?subject=" + encodeURIComponent(form.getAttribute("data-subject") || "Website form") +
-        "&body=" + encodeURIComponent(body);
+      var to = form.getAttribute("data-mailto-form");
+      var subject = form.getAttribute("data-subject") || "Website form";
+      var encTo = encodeURIComponent(to);
+      var encSubject = encodeURIComponent(subject);
+      var encBody = encodeURIComponent(body);
+
+      /* Show the panel with webmail / copy fallbacks for visitors whose
+         browser has no default mail app (then the mailto below is a no-op). */
       var success = form.parentElement.querySelector(".form-success");
       if (success) {
+        success.innerHTML =
+          "<strong>One more step:</strong> press Send in the email that just opened. " +
+          "Nothing opened? Your message is still ready — send it to <strong>" + to + "</strong> another way:" +
+          '<div class="form-success__actions">' +
+            '<a class="btn btn--ghost" target="_blank" rel="noopener" href="https://mail.google.com/mail/?view=cm&fs=1&to=' + encTo + "&su=" + encSubject + "&body=" + encBody + '">Open in Gmail</a>' +
+            '<a class="btn btn--ghost" target="_blank" rel="noopener" href="https://outlook.live.com/mail/0/deeplink/compose?to=' + encTo + "&subject=" + encSubject + "&body=" + encBody + '">Open in Outlook</a>' +
+            '<button type="button" class="btn btn--ghost" data-copy-message>Copy message</button>' +
+          "</div>";
+        var copyBtn = success.querySelector("[data-copy-message]");
+        copyBtn.addEventListener("click", function () {
+          var text = "To: " + to + "\nSubject: " + subject + "\n\n" + body;
+          var done = function () { copyBtn.textContent = "Copied ✓"; };
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(text).then(done, done);
+          } else {
+            var ta = document.createElement("textarea");
+            ta.value = text;
+            document.body.appendChild(ta);
+            ta.select();
+            try { document.execCommand("copy"); } catch (err) {}
+            document.body.removeChild(ta);
+            done();
+          }
+        });
         success.classList.add("is-visible");
         success.scrollIntoView({ behavior: "smooth", block: "center" });
       }
-      window.location.href = href;
+      window.location.href = "mailto:" + to + "?subject=" + encSubject + "&body=" + encBody;
     });
   });
 })();
