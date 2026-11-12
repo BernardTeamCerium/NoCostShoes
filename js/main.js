@@ -214,11 +214,19 @@
       }
       var lines = [];
       new FormData(form).forEach(function (value, key) {
-        if (String(value).trim() !== "") lines.push(key + ": " + value);
+        if (String(value).trim() === "") return;
+        /* humanize the field name: "firstName" -> "First Name" */
+        var label = key.replace(/([a-z])([A-Z])/g, "$1 $2").replace(/^./, function (c) { return c.toUpperCase(); });
+        lines.push(label + ": " + value);
       });
+      var body = lines.join("\n");
+      var intro = form.getAttribute("data-body-intro");
+      var outro = form.getAttribute("data-body-outro");
+      if (intro) body = intro + "\n\n" + body;
+      if (outro) body = body + "\n\n" + outro;
       var href = "mailto:" + form.getAttribute("data-mailto-form") +
         "?subject=" + encodeURIComponent(form.getAttribute("data-subject") || "Website form") +
-        "&body=" + encodeURIComponent(lines.join("\n"));
+        "&body=" + encodeURIComponent(body);
       var success = form.parentElement.querySelector(".form-success");
       if (success) {
         success.classList.add("is-visible");
