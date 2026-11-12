@@ -501,6 +501,42 @@ h1, h2 { text-wrap: balance; }
   .adbar__frame { transform: scale(0.45); }
 }
 
+/* 300x600 half-page banner rail beside content */
+
+.layout-rail {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 300px;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.rail300 {
+  position: sticky;
+  top: 110px;
+}
+
+.rail300__link {
+  display: block;
+  width: 300px;
+  height: 600px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+}
+
+.rail300__link iframe {
+  display: block;
+  border: 0;
+  width: 300px;
+  height: 600px;
+  pointer-events: none; /* clicks fall through to the link */
+}
+
+@media (max-width: 980px) {
+  .layout-rail { grid-template-columns: 1fr; }
+  .rail300 { position: static; margin: 0 auto; }
+}
+
 /* Hero product illustration */
 
 .hero__product {
