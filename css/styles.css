@@ -501,6 +501,63 @@ h1, h2 { text-wrap: balance; }
   .adbar__frame { transform: scale(0.45); }
 }
 
+/* Product photo strips */
+
+.photostrip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.1rem;
+}
+
+.photostrip a {
+  display: block;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 0.9rem 0.9rem 1rem;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.photostrip a:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-soft);
+}
+
+.photostrip img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: contain;
+}
+
+.photostrip span {
+  display: block;
+  margin-top: 0.55rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--navy);
+  text-align: center;
+  line-height: 1.3;
+}
+
+.photostrip__more {
+  margin-top: 1.4rem;
+  text-align: center;
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+}
+
+.photostrip__more a { color: var(--teal); font-weight: 600; }
+
+@media (max-width: 980px) {
+  .photostrip { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 480px) {
+  .photostrip { grid-template-columns: 1fr 1fr; gap: 0.7rem; }
+  .photostrip span { font-size: 0.78rem; }
+}
+
 /* Privacy policy page */
 
 .policy h2 { margin-top: 2.4rem; }
