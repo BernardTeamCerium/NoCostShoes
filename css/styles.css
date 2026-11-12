@@ -532,9 +532,28 @@ h1, h2 { text-wrap: balance; }
   pointer-events: none; /* clicks fall through to the link */
 }
 
+.rail-content { min-width: 0; }
+
+/* narrower content column: step grids down one notch so cards stay readable */
+.layout-rail .grid--4 { grid-template-columns: repeat(3, 1fr); }
+.layout-rail .grid--3 { grid-template-columns: repeat(2, 1fr); }
+
+/* rail stacked inside a form sidebar column */
+.rail300--stack {
+  position: static;
+  width: 300px;
+  margin: 1.5rem auto 0;
+}
+
 @media (max-width: 980px) {
   .layout-rail { grid-template-columns: 1fr; }
   .rail300 { position: static; margin: 0 auto; }
+  .layout-rail .grid--4 { grid-template-columns: repeat(2, 1fr); }
+  .layout-rail .grid--3 { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 640px) {
+  .layout-rail .grid--4, .layout-rail .grid--3 { grid-template-columns: 1fr; }
 }
 
 /* Hero product illustration */
