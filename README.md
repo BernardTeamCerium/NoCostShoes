@@ -8,7 +8,7 @@ brand of Quantum Medical Supply (Medicare-approved supplier, West Palm Beach, FL
 | Page | Purpose |
 | --- | --- |
 | `index.html` | Homepage — hero, insurance strip, 4-step process, footwear categories, FAQs, CTA |
-| `qualify.html` | "Do I Qualify?" eligibility application form |
+| `qualify.html` | Redirect target for old apply links — sends visitors to the secure patient portal |
 | `how-it-works.html` | The process in detail + what Medicare covers each year |
 | `patients.html` | Why diabetic shoes matter, the fitting, daily foot-care habits |
 | `providers.html` | Referral process and partnership info for physicians/podiatrists |
@@ -26,12 +26,13 @@ static host (Netlify, Vercel, S3/CloudFront, GitHub Pages, cPanel, etc.).
 
 ## Notes
 
-- **Forms**: the eligibility and contact forms currently validate client-side and show a
-  confirmation message (`data-demo-form` in `js/main.js`). Point them at a real endpoint
-  (form service, CRM webhook, or backend) before launch.
-- **Fonts**: Sora + Inter via Google Fonts.
-- **Imagery**: inline SVG illustrations — swap for brand photography anytime by replacing
-  the `<svg>` blocks; no other changes needed.
+- **Forms**: eligibility applications go to the secure patient portal (no on-site form —
+  it would collect health information). The Contact and Careers forms compose a pre-filled
+  email in the visitor's mail app (`data-mailto-form` in `js/main.js`); swap in a real
+  endpoint (Formspree, Zapier webhook, CRM) by replacing that handler when one exists.
+- **Redirects**: `web.config` (IIS URL Rewrite) 301-redirects every known old address to
+  the matching new page and serves extensionless URLs. Deploy it to the site root.
+- **Fonts**: system font stack — no font CDNs.
 
 ## Local preview
 

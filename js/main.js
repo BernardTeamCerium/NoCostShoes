@@ -201,21 +201,30 @@
     });
   })();
 
-  /* Demo form handling: validate, then show confirmation.
-     Wire the action attribute to a real endpoint when the backend is ready. */
-  document.querySelectorAll("form[data-demo-form]").forEach(function (form) {
+  /* Forms compose an email in the visitor's own mail app (static site, no
+     backend). data-mailto-form holds the recipient; every filled field is
+     copied into the body. Swap this for a real endpoint (Formspree, Zapier
+     webhook, CRM) when one is available. */
+  document.querySelectorAll("form[data-mailto-form]").forEach(function (form) {
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       if (!form.checkValidity()) {
         form.reportValidity();
         return;
       }
+      var lines = [];
+      new FormData(form).forEach(function (value, key) {
+        if (String(value).trim() !== "") lines.push(key + ": " + value);
+      });
+      var href = "mailto:" + form.getAttribute("data-mailto-form") +
+        "?subject=" + encodeURIComponent(form.getAttribute("data-subject") || "Website form") +
+        "&body=" + encodeURIComponent(lines.join("\n"));
       var success = form.parentElement.querySelector(".form-success");
       if (success) {
         success.classList.add("is-visible");
         success.scrollIntoView({ behavior: "smooth", block: "center" });
       }
-      form.reset();
+      window.location.href = href;
     });
   });
 })();
