@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FreeStyle Libre 3 Plus — Check eligibility now</title>
+<style>
+  /* 300x250 medium rectangle, built from the ADC-105192 "This is progress."
+     campaign (frames per the approved PDF). Clicks are handled by the page
+     that embeds this iframe. */
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 300px; height: 250px; overflow: hidden; }
+  body {
+    position: relative;
+    font-family: "Avenir Next", "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+    background: #ffd200;
+  }
+  .fr { position: absolute; inset: 0; opacity: 0; }
+  .fr--cta { opacity: 1; } /* static fallback frame when animations are off */
+
+  /* photo frames (1 and 6) */
+  .fr--photo { background: #16242e; }
+  .fr--photo .bg {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    object-fit: cover; object-position: 60% 20%;
+  }
+  .fr--photo .shade { position: absolute; inset: 0; background: rgba(22, 36, 46, 0.38); }
+  .logos {
+    position: absolute; top: 10px; left: 10px; right: 10px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .logos .libre { height: 34px; }
+  .logos .abbott { height: 24px; border-radius: 5px; }
+  .f1-head {
+    position: absolute; top: 64px; left: 14px; right: 14px;
+    color: #fff; font-weight: 700; text-align: center;
+    font-size: 25px; line-height: 1.14; letter-spacing: 0.1px;
+  }
+  .f1-head sup { font-size: 0.55em; }
+  .disc {
+    position: absolute; left: 10px; right: 10px; bottom: 7px;
+    font-size: 6.4px; line-height: 1.3; color: #4a4327;
+  }
+  .fr--photo .disc { color: rgba(255, 255, 255, 0.92); }
+
+  /* yellow message frames (2-5) */
+  .circle {
+    position: absolute; top: 14px; left: 50%; transform: translateX(-50%);
+    width: 96px; height: 96px; border-radius: 50%; overflow: hidden; background: #fff;
+  }
+  .circle img { width: 100%; height: 100%; object-fit: cover; object-position: 62% 18%; }
+  .circle .sensor { object-fit: contain; padding: 10px; background: #fff; }
+  .msg {
+    position: absolute; top: 118px; left: 14px; right: 14px;
+    color: #16242e; font-weight: 700; text-align: center;
+    font-size: 15.5px; line-height: 1.18;
+  }
+  .msg--solo { top: 128px; font-size: 18px; }
+  .msg sup { font-size: 0.6em; }
+
+  /* frame 6 CTA */
+  .cta-pill {
+    position: absolute; top: 96px; left: 50%; transform: translateX(-50%);
+    background: #ffd200; color: #16242e; white-space: nowrap;
+    font-weight: 700; font-size: 16px; padding: 8px 18px; border-radius: 999px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+  .tagline {
+    position: absolute; top: 142px; left: 0; right: 0;
+    color: #fff; font-style: italic; font-weight: 700; font-size: 15px; text-align: center;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .fr { animation: cycle 18s ease-in-out infinite; animation-delay: calc(var(--i) * 3s); }
+    .fr--cta { opacity: 0; }
+    .fr--cta .cta-pill { animation: pulse 1.8s ease-in-out infinite; }
+  }
+  @keyframes cycle {
+    0%     { opacity: 0; transform: scale(0.96); }
+    2%     { opacity: 1; transform: scale(1); }
+    14.5%  { opacity: 1; transform: scale(1); }
+    16.67% { opacity: 0; transform: scale(1); }
+    100%   { opacity: 0; transform: scale(1); }
+  }
+  @keyframes pulse {
+    0%, 100% { transform: translateX(-50%) scale(1); }
+    50% { transform: translateX(-50%) scale(1.06); }
+  }
+</style>
+</head>
+<body>
+
+  <!-- Frame 1 — intro on photo -->
+  <div class="fr fr--photo" style="--i:0">
+    <img class="bg" src="../banner-libre-300x600/assets/hero_1.jpg" alt="">
+    <div class="shade"></div>
+    <div class="logos">
+      <img class="libre" src="../banners/freestyle-libre-logo-white.png" alt="FreeStyle Libre 3 Plus">
+      <img class="abbott" src="../banners/abbott-logo.png" alt="Abbott">
+    </div>
+    <div class="f1-head">Living with<br>diabetes and<br>on Medicare*<sup>1</sup>?</div>
+    <div class="disc">Medicare and other payor criteria may apply. The FreeStyle Libre 3 system includes the Libre 3 Plus sensor, Libre 3 sensor, Libre 3 app, Libre App, and the Libre 3 reader. *Patients must meet Medicare eligibility coverage criteria. 1. Local Coverage Determination (LCD) L33822, Glucose Monitors, https://www.cms.gov/medicare-coverage-database/view/lcd.aspx?LCDId=33822.</div>
+  </div>
+
+  <!-- Frame 2 — widely covered -->
+  <div class="fr" style="--i:1">
+    <div class="circle"><img src="../banner-libre-300x600/assets/hero_1.jpg" alt=""></div>
+    <div class="msg">The FreeStyle Libre 3 Plus sensor is widely covered by Medicare for patients managing diabetes with insulin*<sup>1,2</sup>.</div>
+    <div class="disc">Medicare and other payor criteria may apply. *Patients must meet Medicare eligibility coverage criteria. 1. Local Coverage Determination (LCD) L33822, Glucose Monitors, https://www.cms.gov/medicare-coverage-database/view/lcd.aspx?LCDId=33822. 2. Data on file, Abbott Diabetes Care.</div>
+  </div>
+
+  <!-- Frame 3 — sensor close-up -->
+  <div class="fr" style="--i:2">
+    <div class="circle"><img class="sensor" src="../banner-libre-300x600/assets/sensor.png" alt=""></div>
+    <div class="msg">The FreeStyle Libre 3 Plus sensor is widely covered by Medicare for patients managing diabetes with insulin*<sup>1,2</sup>.</div>
+    <div class="disc">Medicare and other payor criteria may apply. *Patients must meet Medicare eligibility coverage criteria. 1. Local Coverage Determination (LCD) L33822, Glucose Monitors, https://www.cms.gov/medicare-coverage-database/view/lcd.aspx?LCDId=33822. 2. Data on file, Abbott Diabetes Care.</div>
+  </div>
+
+  <!-- Frame 4 — easy to apply -->
+  <div class="fr" style="--i:3">
+    <div class="circle"><img src="../banner-libre-300x600/assets/hero_6.jpg" alt=""></div>
+    <div class="msg msg--solo">It&rsquo;s easy to apply and wear<sup>3</sup>,</div>
+    <div class="disc">3. Alva, S. Diabetes Therapy (2023): https://doi.org/10.1007/s13300023-01385-6.</div>
+  </div>
+
+  <!-- Frame 5 — no fingersticks -->
+  <div class="fr" style="--i:4">
+    <div class="circle"><img src="../banner-libre-300x600/assets/hero_6.jpg" alt=""></div>
+    <div class="msg msg--solo">no fingersticks needed<sup>&dagger;</sup>.</div>
+    <div class="disc">&dagger;Fingersticks are required if your glucose alarms and readings do not match symptoms or when you see Check Blood Glucose symbol during the first twelve hours.</div>
+  </div>
+
+  <!-- Frame 6 — CTA -->
+  <div class="fr fr--photo fr--cta" style="--i:5">
+    <img class="bg" src="../banner-libre-300x600/assets/hero_6.jpg" alt="">
+    <div class="shade" style="background:rgba(22,36,46,0.22);"></div>
+    <div class="logos">
+      <img class="libre" src="../banners/freestyle-libre-logo-white.png" alt="FreeStyle Libre 3 Plus">
+      <img class="abbott" src="../banners/abbott-logo.png" alt="Abbott">
+    </div>
+    <div class="cta-pill">Check eligibility now</div>
+    <div class="tagline">This is progress.</div>
+    <div class="disc">Medicare and other payor criteria may apply. The FreeStyle Libre 3 system includes the Libre 3 Plus sensor, Libre 3 sensor, Libre 3 app, Libre App, and the Libre 3 reader. Product for prescription only, for Important Safety Information please visit FreeStyleLibre.us. The sensor housing, FreeStyle, Libre, and related brand marks are marks of Abbott. Other trademarks are the property of their respective owners. &copy; 2025 Abbott. ADC-105192 v1.0</div>
+  </div>
+
+</body>
+</html>

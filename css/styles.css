@@ -588,6 +588,27 @@ h1, h2 { text-wrap: balance; }
 
 .policy-table td:last-child { white-space: nowrap; font-weight: 700; }
 
+/* 300x250 inline banner slot */
+
+.mrec-slot .container { display: flex; justify-content: center; }
+
+.mrec__link {
+  display: block;
+  width: 300px;
+  height: 250px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+}
+
+.mrec__link iframe {
+  display: block;
+  border: 0;
+  width: 300px;
+  height: 250px;
+  pointer-events: none; /* clicks fall through to the link */
+}
+
 /* Cookie consent (ported from quantummedicalsupply.com) */
 
 .cookie-consent {
